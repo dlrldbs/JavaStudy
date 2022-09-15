@@ -1,0 +1,147 @@
+오창중
+ocj1778@hanmail.net
+2022-09-14 ~ 2023-03-14
+9:30 ~ 13:30
+14:30 ~ 18:30
+
+Java - Oracle(SQL) - JDBC - HTML & CSS & JavaScript(jQuery) - Servlet & JSP
+- Semi Project - Framework - Final Project
+
+JDK 설치 - https://www.oracle.com
+JDK 설치 확인) CMD(콘솔 실행) -> javac -version
+
+jar(확장자) : java archive file (묶음파일, 알아서 풀려서 실행됨)
+JDK 가 여러개일 때, window에서 환경설정 필요 (환경변수)
+
+
+Java Programming
+
+1. Source File 작성 - Class 생성 (Field, Constructor, Method - Statement) => main 메소드 생성
+
+ - 클래스(Class) : Java 프로그램을 개발하기 위해 사용하는 기본 단위 - 자료형
+
+ - 클래스의 구성 요소 : Field, Constructor, Method
+
+ ※ 메소드 (Method) : 명령을 작성하여 기능을 제공하기 위한 클래스의 구성요소
+
+ - main 메소드 생성 : 프로그램을 실행하기 위해 반드시 작성해야되는 메소드 (하나)
+
+public class 클래스명 
+{ } : 블록
+
+파스칼 표기법 : 조합된 글자들의 첫글자를 대문자로 함  
+
+ 형식)
+public class 클래스명 {
+	public static void main(String[ ] args) {
+		명령;
+		명령;
+		...
+  }
+}
+
+ ※ 출력 기능을 제공하는 메소드 호출
+
+ System.out.print("출력대상");
+
+ System.out.println("출력대상");
+
+ - 소스파일은 반드시 "클래스명.java" 형식으로 저장
+
+ 2. 컴파일 (Compile) : 인간 중심으로 작성된 프로그램 언어를 기계어 (machine language) 로 변환하는 작업 
+
+  형식) javac 소스파일명
+ - 소스파일의 프로그램에 잘못된 문법이 존재할 경우, 에러 발생
+ 
+ - 컴파일이 완료되면 이진코드(ByteCode)가 저장된 클래스파일 (클래스명.class) 생성
+
+ ※ 클래스파일 : 프로그램 실행을 위해 배포되는 파일
+
+
+cmd는 ANSI 밖에 읽을 수 없다. 
+
+
+ 3. Java 프로그램 실행
+
+ 형식) java 클래스명
+ 
+ - JVM(Java Virtual Machine)을 이용하여 클래스파일을 제공받아 실행
+
+ ● 이클립스 설치 및 사용법 
+ 
+ - 이클립스(Eclipse) : Java 언어를 이용하여 프로그램을 쉽게 개발하기 위해 제공되는 툴
+
+ - https://www.eclipse.org 사이트에서 이클립스 다운로드 >> 압축 해제 >> 실행
+
+ ※ eclipse.ini 파이르이 vm 환경값 변경
+
+ - 이클립스 실행 >> workSpace 폴더 설정(한번만) 
+ - JavaEE Perspective에서 Java Perspective로 변경
+  Window >> Java Perspective로 변경
+
+ ※ Perpective : 프로그램 개발에 필요한 뷰(view)를 제공하기 위한 환경
+
+ View 없어지면 window >> Show view 에서 선택
+없어진 항목이 무엇인지 모른다면 window >> perspective >> reset perspective
+
+
+ - 이클립스 환경설정 - window >> Preferences 
+
+ 글꼴 변경 : General >> Appearance >> Colors and fonts >> Basic >> Text Font >> Edit
+ 
+ Workspace : 폴더의 글자형태 (CharSet) :
+ General >> Appearance >> workspace >> Text file encoding >> Other: UTF-8
+
+ - Java 프로젝트 생성
+ 
+ ※ 프로젝트(Project) : 특별한 목적의 프로그램을 개발하기 위한 시스템을 제공하는 작업영역
+
+ Package Explore >> Create a Java Project >> project name 설정 >> Finish >> module설정 Don't create
+ 
+ ※ Package Explore >> 마우스 오른쪽 클릭(팝업메뉴) >> New >> Java Project
+
+ - src 패키지 폴더에 패키지 생성 : 
+ Package Explorer >> 프로젝트 >> src >> 마우스 오른쪽 클릭(팝업메뉴) >> new >> package 
+
+ ※ 패키지 (Package) : 동일한 목적의 클래스를 하나의 그룹으로 묶어 관리하기 위한 이름
+
+ - 패키지에 소스파일 (Class) 작성
+Package Explorer >> src >> package >> 마우스 우클릭(팝업메뉴) >> new >> class
+
+ - main 메소드 생성 및 실행 명령 작성
+
+ ※ 이클립스의 자동 완성 기능 사용하여 프로그램 작성 권장 : [Ctrl] + [space bar]
+ 
+ => 식별자 또는 예약어에 대한 자동 완성 기능을 제공하거나 단축단어에 대한 구문 완성 기능 제공
+
+ ※ 단축단어에 대한 구문 완성 기능 생성
+ 
+ Window >> Preferences >> Java >> Editor >> Templates >> New
+
+ ※ 소스파일 저장 : [Ctrl]+[S] - 소스파일을 저장하면 자동으로 컴파일 처리
+ 
+ - Java 프로그램 실행 : [Ctrl] + [F11] 
+
+ ● Java 주석문 : 프로그램 실행에 영향을 미치지 않는 설명문
+
+ 1. Source 주석 : Java 소스파일에 대한 설명문 - 유지보수의 효율성 증가 
+
+  행 주석 : //설명문  >>  [Ctrl]+[ / ]
+  
+  범위 주석 : /* 설명문 */  >> [Ctrl]+[Shift]+[ / ]
+
+ 2. API 주석 : API 문서에 제공할 설명문
+
+  클래스 또는 메소드 앞부분에 API 주석문을 이용하여 설명 처리 >> /** 설명문 */
+
+
+
+
+
+
+
+
+
+
+
+
