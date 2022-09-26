@@ -34,8 +34,10 @@ public class Student {
 		calcTot();
 	}
 	
-	//인스턴스 메소드
 	//[AlT]+[SHIFT]+[S] - [R]
+	
+	//인스턴스 메소드 : this 매개변수가 존재하는 메소드
+	// => 인스턴스 필드 및 정적 필드 접근 가능
 	public int getNum() {
 		return num;
 	}
@@ -96,7 +98,10 @@ public class Student {
 	}
 	
 	
-	//static 정적 메소드
+	//정적 메소드(Static Method) : this 매개변수가 없는 메소드
+	// => this 매개변수가 없으므로 인스턴스 필드에 접근 불가능
+	// => 정적 필드만 접근하여 사용 가능
+	// => 객체 생성 전에 클래스을 이름을 사용하여 호출 가능 - 메소드 호출의 용이성
 	public static int getTotal() {
 		return total;
 	}
@@ -107,3 +112,4 @@ public class Student {
 	
 	
 }
+
