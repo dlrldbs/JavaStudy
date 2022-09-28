@@ -99,7 +99,7 @@ public class MemberEvent extends Member {
 	//@Override : 오버라이드 선언된 메소드를 표현하기 위한 어노테이션
 	// => 메소드 오버라이드 작성 규칙을 위반한 경우 에러 발생
 	//어노테이션(Annotation) : API 문서에서 특별한 설명을 제공하기 위한 기능을 구현
-	// => Java Source작성에 필요한 특별한 기능을 제공 위해 사용
+	// => Java Source작성에 필요한 특별한 기능을 제공 위해 사용되는 어노테이션 : 
 	@Override
 	public void display() {
 		//super 키워드로 부모클래스의 숨겨진 메소드 호출
