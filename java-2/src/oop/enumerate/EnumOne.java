@@ -1,0 +1,8 @@
+package enumerate;
+
+//열거형(Enumerate) : 상수만을 선언하기 위한 자료형(참조형)
+public enum EnumOne {
+	//상수필드 선언 - public static final int 생략 가능
+	// => 열거형의 상수필드에는 0부터 1씩 증가되는 저장값이 기본값으로 자동 저장
+	INSERT,UPDATE,DELETE,SELECT;
+}
