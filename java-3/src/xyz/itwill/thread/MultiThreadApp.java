@@ -38,6 +38,7 @@ public class MultiThreadApp {
 		
 		/*
 		MultiThreadOne one=new MultiThreadOne();
+		//Thread.start() : Thread 객체로 새로운 스레드를 생성하여 run() 메소드 호출하여 실행
 		one.start();
 		//one.start();
 		*/
@@ -51,6 +52,7 @@ public class MultiThreadApp {
 
 		//Thread(Runnable target) : Runnable 인터페이스를 상속받은 자식클래스의 객체를 전달
 		//받아 Thread 객체 생성
+		// => Thread 객체의 run() 메소드를 오버라이드 선언하는 것과 같은 효과
 		new Thread(new MultiThreadTwo()).start();
 		
 		for(char i='0';i<='9';i++) {
