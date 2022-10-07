@@ -18,9 +18,9 @@ public class CurrentCalendarApp {
 		//System.out.println("week = "+week);
 		
 		System.out.println("========================================================================================================");
-		System.out.println("       "+calendar.get(Calendar.YEAR)+"년 "+(calendar.get(Calendar.MONTH)+1)+"월 ");
+		System.out.println("          "+calendar.get(Calendar.YEAR)+"년 "+(calendar.get(Calendar.MONTH)+1)+"월 ");
 		System.out.println("===============================");
-		System.out.println("  일  월  화  수  목  금  토");
+		System.out.println("  일  월  화  수  목  금  토  ");
 		System.out.println("===============================");
 		
 		//[1일]에 대한 요일전까지 공백 출력
