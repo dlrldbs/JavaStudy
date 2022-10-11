@@ -8,13 +8,14 @@ import java.util.Map;
 // => 이름(Key - 식별자)과 값(Value - 객체)을 하나로 묶어 자료구조 클래스의 객체에 저장하여 사용
 // => 엔트리(Entry) : 이름과 값을 하나로 묶어 사용하는 처리 단위
 // => 이름을 이용하여 값을 빠르게 검색하여 사용하기 위한 자료구조 클래스
-// => Map 객체의 이름(Key)은 Set 객체로 저장되므로 중복 저장할 수 없으며 순서 없이 저장
+
 public class MapApp {
 	public static void main(String[] args) {
 		//Map 인터페이스를 상속받은 자식클래스는 이름과 값에 대한 제네릭을 2개 전달하여 사용
 		Map<Integer, String> map=new HashMap<Integer, String>();
 		
 		//Map.put(K key, V value) : Map 객체에 엔트리를 추가하는 메소드
+		// => Map 객체의 이름(Key)은 Set 객체로 저장되므로 중복 저장할 수 없으며 순서 없이 저장
 		map.put(1000, "Gildong");
 		map.put(2000, "Gguckjeong");
 		map.put(3000, "Wuchi");

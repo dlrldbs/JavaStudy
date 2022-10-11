@@ -1,7 +1,8 @@
 package xyz.itwill.utill;
 
 //학생정보(학번,이름)를 저장하기 위한 클래스 - VO(Value Object) 클래스
-public class Student {
+// => 객체의 컬럼값을 비교하기 위한 기능을 제공받기 위해 Comparable 인터페이스를 상속받아 작성
+public class Student implements Comparable<Student> {
 	private int num;
 	private String name;
 	
@@ -54,11 +55,15 @@ public class Student {
 		return false;
 	}
 	
-	//Object 클래스의 hashCode() 메소드를 오버라이드 선언
-	// => VO 클래스에 저장된 필드값을 비교하여 결과를 반환하기 위해 선언
+	//객체의 컬럼값을 매개변수로 전달받은 객체의 컬럼값과 비교하여 결과를 반환하는 메소드
+		// => 객체의 컬럼값이 큰 경우 양수 반환하고 매개변수로 전달받은 객체의 컬럼값이 큰 경우 음수 반환
+		//같은 경우 0 반환하도록 명령
+		// => 오름차순 또는 내림차순 정렬을 위한 비교값 설정
 	@Override
-	public int hashCode() {
-		return num;
+	public int compareTo(Student o) {
+		//return num-o.num; //학번을 비교하여 오름차순 정렬되도록 설정
+		//return o.num-num; //학번을 비교하여 내림차순 정렬되도록 설정
+		//return name.compareTo(o.name); //이름을 비교하여 오름차순 정렬되도록 정렬
+		return name.compareTo(name); //이름을 비교하여 내림차순 정렬되도록 정렬
 	}
-	
 }

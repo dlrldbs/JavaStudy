@@ -9,10 +9,10 @@ import java.util.Set;
 // => Set 인터페이스, List 인터페이스, Map 인터페이스 중 상속받아 작성된 자식클래스
 
 //Set 인터페이스를 상속받은 자료구조 클래스 - HashSet, TreeSet 등
-// => 객체의 저장 순서가 없으며 동일한 객체 중복 저장 불가능
+// => 객체의 저장 순서가 없으며 메모리 주소와 객체에 저장된 값이 같은 중복된 객체 저장 불가능
 public class SetApp {
 	public static void main(String[] args) {
-		//제네릭을 사용하지 않고 HashSet 객체 생성
+		//제네릭을 사용하지 않고 HashSet 객체 생성 - 비권장
 		// => HashSet 객체에 모든 클래스의 객체가 Object 타입으로 저장
 		// => HashSet 객체에 저장된 객체를 반환받아 사용할 경우 반드시 명시적 객체 형변환 후 사용
 		//HashSet set=new HashSet();

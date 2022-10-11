@@ -24,12 +24,12 @@ public class NonGenericApp {
 		nonGeneric2.setField(12.34);//오토박싱
 		
 		if(nonGeneric2.getField() instanceof String) {
-		//명시적 객체 형변환을 잘못할 경우 ClassCastException 발생
-		// => instanceof 연산자를 사용하여 명시적 객체 형변환 전에 검증
-		//Integer returnObject2=(Integer)nonGeneric2.getField();
-		Double returnObject2=(Double)nonGeneric2.getField();
+			//명시적 객체 형변환을 잘못할 경우 ClassCastException 발생
+			// => instanceof 연산자를 사용하여 명시적 객체 형변환 전에 검증
+			//Integer returnObject2=(Integer)nonGeneric2.getField();
+			Double returnObject2=(Double)nonGeneric2.getField();
 		
-		System.out.println("필드값 = "+returnObject2);//오토언박싱
+			System.out.println("필드값 = "+returnObject2);//오토언박싱
 		}
 		System.out.println("===============================================================");
 		NonGeneric nonGeneric3=new NonGeneric();
