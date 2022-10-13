@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
@@ -23,6 +24,9 @@ public class CalculatorApp extends JFrame implements ActionListener {
 	private JButton b0, b1, b2, b3, b4, b5, b6, b7, b8, b9;
 	private JButton bMulti, bDiv, bPlus, bMinus, bClear, bEquals;
 
+	//연산식을 저장하기 위한 필드
+	private String operation="";
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -139,6 +143,71 @@ public class CalculatorApp extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-
+		//이벤트가 발생된 컴퍼넌트(JButton 컴퍼넌트)를 반환받아 저장
+		// => 반환받은 Object 객체를 JButton 클래스로 명시적 객체 형변환하여 저장
+		JButton eventButton=(JButton)e.getSource();
+		
+		//이벤트가 발생된 JButton 컴퍼넌트를 구분하여 명령 처리
+		if(eventButton==bClear) {//이벤트가 발생된 JButton 컴퍼넌트가 [Clear]인 경우
+			operation="";//연산식 저장 필드 초기화
+			label.setText("0");//출력 컴퍼넌트 초기화
+		} else if(eventButton==bEquals) {//이벤트가 발생된 JButton 컴퍼넌트가 [Equals]인 경우
+			//연산식에서 검색하기 위한 연산자가 저장된 문자열 배열 선언
+			String[] operatorArray={"*","/","+","-"};
+			
+			int index=-1;//연산식에서 연산자 위치의 첨자를 저장하기 위한 변수
+			//연산식에서 연산자를 검색하기 위한 반복문
+			for(int i=0;i<operatorArray.length;i++) {
+				index=operation.lastIndexOf(operatorArray[i]);
+				if(index!=-1) break;
+			}
+			
+			//연산식에서 연산자를 찾을 수 없는 경우 이벤트 처리 메소드 종료
+			if(index<=0) return; 
+			
+			try {
+				//연산식에서 피연산자와 연산자를 분리하여 변수에 저장
+				int num1=Integer.parseInt(operation.substring(0, index));
+				int num2=Integer.parseInt(operation.substring(index+1));
+				String operator=operation.substring(index, index+1);
+				
+				//연산식를 비교하여 피연산자의 연산 결과를 저장
+				int result=0;
+				switch (operator) {
+				case "*": result=num1*num2; break;
+				case "/": result=num1/num2; break;
+				case "+": result=num1+num2; break;
+				case "-": result=num1-num2; break;
+				}
+				
+				//JLabel 컴퍼넌트에 연산 결과 출력 
+				// => 연산 결과값을 문자열로 변환해야 setText() 메소드 호출 가능
+				//label.setText(String.valueOf(result));
+				label.setText(result+"");
+				
+				//operation="";//연산식 저장 필드 초기화
+				operation=result+"";//연산 결과를 연산식에 저장 - 반복적인 연산 가능
+			} catch (ArithmeticException exception) {//어떤 수를 0으로 나눈 경우 발생되는 예외
+				operation="";
+				label.setText("0으로 나눌 수 없습니다.");
+			} catch (NumberFormatException exception) {//문자열을 숫자값으로 변환할 수 없는 경우 발생되는 예외
+				operation="";
+				label.setText("0");
+				//JOptionPane.showMessageDialog(Component parent, String message)
+				// => 메세지를 출력하는 다이얼로그를 보여주는 메소드 
+				JOptionPane.showMessageDialog(this, "입력된 연산식이 형식에 맞지 않습니다.");
+			} catch (Exception exception) {//모든 예외
+				JOptionPane.showMessageDialog(this, "프로그램에 예기치 못한 오류가 있습니다.");
+				System.exit(0);
+			}
+		} else {
+			//이벤트가 발생된 JButton 컴퍼넌트의 문장열을 반환받아 연산식에 추가(결합)하여 저장
+			//JComponent.getText() : 컴퍼넌트의 문자열을 반환하는 메소드 
+			operation+=eventButton.getText();
+			
+			//연산식을 JLabel 컴퍼넌트에 출력되도록 문자열 변경
+			//JComponent.setText(String text) : 컴퍼넌트의 문자열을 변경하는 메소드 
+			label.setText(operation);
+		}
 	}
 }
