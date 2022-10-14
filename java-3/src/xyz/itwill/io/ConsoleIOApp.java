@@ -17,11 +17,11 @@ public class ConsoleIOApp {
 		
 		//Java에서 기본적으로 제공되는 모니터 출력스트림(System.out)은 PrintStream 객체로
 		//생성되어 print() 또는 println() 메소드로 값을 문자열로 변환하여 출력 가능
-		System.out.println("이름 입력 >> ");
+		System.out.print("이름 입력 >> ");
 		//BufferedReader.readLine() : 입력스트림에서 문자열을 얻어와 반환하는 메소드
 		String name=in.readLine();
 		
-		System.out.println("태어난 년도 입력 >> ");
+		System.out.print("태어난 년도 입력 >> ");
 		//키보드로 입력받은 문자열을 정수값으로 변환하여 저장 - NumberFormatException 발생 가능
 		int birthYear=Integer.parseInt(in.readLine());
 		
