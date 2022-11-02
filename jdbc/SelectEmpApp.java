@@ -1,7 +1,6 @@
 package xyz.itwill.jdbc;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,33 +23,12 @@ public class SelectEmpApp {
 			
 			stmt=con.createStatement();
 			
-			String sql="select * from EMP order by SAL DESC";
+			String sql="select empno,ename,sal from EMP order by SAL DESC";
 			rs=stmt.executeQuery(sql);
-			
-			if(rs.next()) {
-				do {
-					int EMPNO=rs.getInt("EMPNO");
-					String ENAME=rs.getString("ENAME");
-					String JOB=rs.getString("JOB");
-					int MGR=rs.getInt("MGR");
-					Date HIREDATE =rs.getDate("HIREDATE");
-					int SAL=rs.getInt("SAL");
-					int DEPTNO=rs.getInt("DEPTNO");
-											
-					System.out.println("사원번호 = "+EMPNO);
-					System.out.println("사원이름 = "+ENAME);
-					System.out.println("업무 = "+JOB);
-					System.out.println("관리자번호 = "+MGR);
-					System.out.println("고용일 = "+HIREDATE);
-					System.out.println("급여 = "+SAL);
-					System.out.println("부서번호 = "+DEPTNO);
-					System.out.println("======================================================");	
-				} while (rs.next());
-				
-			} else { 
-				System.out.println("[메세지]검색된 사원정보가 없습니다.");
-			}
-			
+
+			while (rs.next()) {
+					 System.out.println("사원번호 = "+rs.getInt("empno")+", 사원이름 = "+rs.getString("ename")+", 급여 = "+rs.getInt("sal"));
+				 }		
 		} catch (ClassNotFoundException e) {
 			System.out.println("클래스를 찾을 수 없습니다.");
 		} catch (SQLException e) {
@@ -64,8 +42,7 @@ public class SelectEmpApp {
 				e.printStackTrace(); 
 			}
 		}
-		
-		
+			
 	}
 }
 	
