@@ -81,7 +81,7 @@ public class ResultSetCursorApp {
 		
 		stmt=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		
-		//ResultSet 커서가 위치한 처리행에 대한 조작이 가능한 경우 SELECT 명령의 검색대상으로 [*] 사용 불가능
+		//ResultSet 커서가 위치한 처리행에 대한 조작이 가능한 경우 SELECT 명령의 검색대상으로 [*] 사용 불가능 사용 (업데이트가 안됨)
 		sql="select no,name,phone,address,birthday from student order by no";
 		rs=stmt.executeQuery(sql);
 

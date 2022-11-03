@@ -26,8 +26,8 @@ public class SqlMinusApp {
 		
 		while(true) {
 			//키보드로 SQL 명령을 입력받아 저장
-			System.out.println("SQL> ");
-			String sql=in.readLine();
+			System.out.print("SQL> ");
+			String sql=in.readLine().trim();
 			
 			//키보드 입력값이 없는 경우 반복문을 처음부터 다시 실행
 			if(sql==null || sql.equals("")) continue;
