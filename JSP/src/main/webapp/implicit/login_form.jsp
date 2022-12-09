@@ -2,7 +2,21 @@
     pageEncoding="UTF-8"%>
 <%-- 사용자로부터 인증정보(아이디와 비밀번호)를 입력받기 위한 JSP문서 --%>
 <%-- => [로그인]을 클릭한 경우 form 태그를 실행하여 로그인 처리페이지(login_action.jsp)를 
-[post] 방식으로 요청하여 이동 - 인증정보 전달 --%> 
+[post] 방식으로 요청하여 이동 - 인증정보 전달 --%>
+<%-- 로그인 사용자 : 클라이언트에게 환영메세지를 전달하는 JSP 문서 --%>
+<%--=>[마이페이지]을 클릭한 경우 마이페이지 (login_form.jsp)로 이동 --%>
+<%
+	//session 내장객체에 저장된 권한 관련 속성값(아이디)를 반환받아 저장
+	String loginId=(String)session.getAttribute("loginId");
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JSP</title>
+</head>
+<body>
+<% if(loginId==null) {//비로그인 사용자가 JSP 문서를 요청한 경우 %>
 <%
 	//session 내장객체에 저장된 속성값(에러메세지)을 반환받아 저장
 	String message=(String)session.getAttribute("message");
@@ -21,13 +35,7 @@
 		session.removeAttribute("id");
 	}
 %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>JSP</title>
-</head>
-<body>
+
 	<h1>로그인</h1>
 	<hr>
 	<form action="login_action.jsp" method="post" name="loginForm">
@@ -66,5 +74,11 @@
 			loginForm.submit();
 		}
 	</script>
+
+<% } else {//로그인 사용자가 JSP 문서를 요청한 경우 %>
+	<h1>로그인 사용자 전용 페이지</h1>
+	<hr>
+	<p><%=loginId %>님, 환영합니다.
+<% } %>
 </body>
 </html>

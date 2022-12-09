@@ -10,7 +10,7 @@
 	<h1>내장객체(Implicit Object)</h1>
 	<hr>
 	<p>내장객체 : WAS 프로그램에 의해 JSP 문서에서 사용되도록 제공되는 Java 객체</p>
-	<hr>
+	<hr>	
 	<p>page(HttpJspPage) : JSP 문서정보를 제공하기 위한 객체</p>
 	<p>config(ServletConfig) : WAS 프로그램에 등록된 환경설정 값을 제공하기 위한 객체</p>
 	<p>out(JspWriter) : 클라이언트에게 응답될 문서파일을 생성하기 위한 객체 - 출력스트림</p> 
