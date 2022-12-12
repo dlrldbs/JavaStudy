@@ -17,7 +17,7 @@
 	
 	//반환받은 전달값을 이용하여 Content 영역에 포함될 JSP 문서의 파일 경로 저장
 	String contentFilePath=workgroup+"/"+process+".jsp";
-	System.out.println("contentFilePath = "+contentFilePath);
+	//System.out.println("contentFilePath = "+contentFilePath);
 %>
 <!DOCTYPE html>
 <html>
